@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useExpense } from '../context/ExpenseContext';
 import { useExpenseFilters, ExpenseFilters } from '../hooks/useExpenseFilters';
 import { ExpenseItem } from './ExpenseItem';

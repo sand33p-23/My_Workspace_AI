@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Expense } from '../types';
 import { useExpense } from '../context/ExpenseContext';
 import { formatCurrency } from '../utils/currencyUtils';

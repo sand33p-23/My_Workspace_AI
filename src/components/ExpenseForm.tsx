@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Expense } from '../types';
 import { useExpense } from '../context/ExpenseContext';
-import { formatCurrency, parseCurrency } from '../utils/currencyUtils';
+import { parseCurrency } from '../utils/currencyUtils';
 import './ExpenseForm.css';
 
 interface ExpenseFormProps {

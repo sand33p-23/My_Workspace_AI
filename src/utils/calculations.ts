@@ -75,7 +75,7 @@ export const getSpendingByCategory = (expenses: Expense[]): Record<string, numbe
   }, {} as Record<string, number>);
 };
 
-export const getAverageSpending = (expenses: Expense[], period: 'daily' | 'weekly' | 'monthly'): number => {
+export const getAverageSpending = (expenses: Expense[]): number => {
   if (expenses.length === 0) return 0;
 
   const total = calculateTotal(expenses);

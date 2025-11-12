@@ -38,10 +38,24 @@ export interface Settings {
   dateFormat: string;
 }
 
+export interface Subscription {
+  id: string;
+  name: string;
+  amount: number;
+  category: string;
+  billingCycle: 'monthly' | 'yearly';
+  startDate: string; // ISO date string
+  nextBillingDate: string; // ISO date string
+  icon?: string;
+  color?: string;
+  isActive: boolean;
+}
+
 export interface ExpenseState {
   expenses: Expense[];
   budgets: Budget[];
   recurringExpenses: RecurringExpense[];
+  subscriptions: Subscription[];
   categories: Category[];
   settings: Settings;
 }
@@ -56,6 +70,10 @@ export type ExpenseAction =
   | { type: 'ADD_RECURRING_EXPENSE'; payload: RecurringExpense }
   | { type: 'UPDATE_RECURRING_EXPENSE'; payload: RecurringExpense }
   | { type: 'DELETE_RECURRING_EXPENSE'; payload: string }
+  | { type: 'ADD_SUBSCRIPTION'; payload: Subscription }
+  | { type: 'UPDATE_SUBSCRIPTION'; payload: Subscription }
+  | { type: 'DELETE_SUBSCRIPTION'; payload: string }
+  | { type: 'TOGGLE_SUBSCRIPTION'; payload: string }
   | { type: 'ADD_CATEGORY'; payload: Category }
   | { type: 'UPDATE_CATEGORY'; payload: Category }
   | { type: 'DELETE_CATEGORY'; payload: string }

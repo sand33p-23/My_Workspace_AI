@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useExpense } from '../context/ExpenseContext';
 import { getSpendingByCategory, getSpendingTrend, calculateTotal } from '../utils/calculations';
 import { exportToCSV, exportToJSON } from '../utils/exportUtils';
@@ -6,13 +6,11 @@ import { formatCurrency } from '../utils/currencyUtils';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import './Reports.css';
 
-const COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#95A5A6', '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739'];
-
 export function Reports() {
   const { state } = useExpense();
   const [dateRange, setDateRange] = useState<'7' | '30' | '90' | 'all'>('30');
 
-  const filteredExpenses = React.useMemo(() => {
+  const filteredExpenses = useMemo(() => {
     if (dateRange === 'all') return state.expenses;
     
     const days = parseInt(dateRange);

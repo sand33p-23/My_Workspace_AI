@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Expense } from '../types';
-import { parseISO, isWithinInterval } from 'date-fns';
+import { parseISO } from 'date-fns';
 
 export interface ExpenseFilters {
   searchQuery: string;

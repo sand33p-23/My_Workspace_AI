@@ -1,0 +1,266 @@
+.spending-optimizer {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.optimizer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.optimizer-header h2 {
+  margin: 0 0 0.5rem 0;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.optimizer-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.savings-summary {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  min-width: 200px;
+}
+
+.savings-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.savings-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.suggestion-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid transparent;
+}
+
+.suggestion-card.impact-high {
+  border-left-color: var(--error-color);
+}
+
+.suggestion-card.impact-medium {
+  border-left-color: var(--warning-color);
+}
+
+.suggestion-card.impact-low {
+  border-left-color: var(--success-color);
+}
+
+.suggestion-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.suggestion-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.suggestion-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.suggestion-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.suggestion-title {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.suggestion-description {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.suggestion-savings {
+  flex-shrink: 0;
+}
+
+.savings-amount {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.suggestion-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.impact-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.impact-badge.impact-high {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+}
+
+.impact-badge.impact-medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.impact-badge.impact-low {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.optimizer-tips {
+  margin-top: 3rem;
+}
+
+.optimizer-tips h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tip-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+}
+
+.tip-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.tip-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tip-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.tip-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .spending-optimizer {
+    padding: 1rem;
+  }
+
+  .optimizer-header {
+    flex-direction: column;
+  }
+
+  .suggestion-header {
+    flex-direction: column;
+  }
+
+  .suggestion-savings {
+    width: 100%;
+  }
+
+  .savings-amount {
+    display: block;
+    text-align: center;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

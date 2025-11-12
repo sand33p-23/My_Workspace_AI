@@ -6,9 +6,11 @@ import { BudgetManager } from './components/BudgetManager';
 import { CategoryManager } from './components/CategoryManager';
 import { RecurringExpenseForm } from './components/RecurringExpenseForm';
 import { Reports } from './components/Reports';
+import { Subscriptions } from './components/Subscriptions';
+import { SpendingOptimizer } from './components/SpendingOptimizer';
 import './App.css';
 
-type View = 'dashboard' | 'expenses' | 'budgets' | 'categories' | 'recurring' | 'reports';
+type View = 'dashboard' | 'expenses' | 'budgets' | 'categories' | 'recurring' | 'reports' | 'subscriptions' | 'optimizer';
 
 function AppContent() {
   const { state, dispatch } = useExpense();
@@ -37,6 +39,10 @@ function AppContent() {
         return <RecurringExpenseForm />;
       case 'reports':
         return <Reports />;
+      case 'subscriptions':
+        return <Subscriptions />;
+      case 'optimizer':
+        return <SpendingOptimizer />;
       default:
         return <Dashboard />;
     }
@@ -84,6 +90,18 @@ function AppContent() {
             onClick={() => setCurrentView('reports')}
           >
             📊 Reports
+          </button>
+          <button
+            className={`nav-item ${currentView === 'subscriptions' ? 'active' : ''}`}
+            onClick={() => setCurrentView('subscriptions')}
+          >
+            📺 Subscriptions
+          </button>
+          <button
+            className={`nav-item ${currentView === 'optimizer' ? 'active' : ''}`}
+            onClick={() => setCurrentView('optimizer')}
+          >
+            💡 Optimizer
           </button>
         </div>
         <button className="theme-toggle" onClick={toggleTheme} title="Toggle theme">

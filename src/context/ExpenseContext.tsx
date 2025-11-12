@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
-import { ExpenseState, ExpenseAction, Expense, Budget, RecurringExpense, Category, Settings } from '../types';
+import { ExpenseState, ExpenseAction, Expense, Category, Settings } from '../types';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { getNextRecurrenceDate } from '../utils/dateUtils';
 
@@ -22,6 +22,7 @@ const initialState: ExpenseState = {
   expenses: [],
   budgets: [],
   recurringExpenses: [],
+  subscriptions: [],
   categories: defaultCategories,
   settings: defaultSettings,
 };
@@ -98,6 +99,34 @@ function expenseReducer(state: ExpenseState, action: ExpenseAction): ExpenseStat
       return {
         ...state,
         recurringExpenses: state.recurringExpenses.filter(re => re.id !== action.payload),
+      };
+
+    case 'ADD_SUBSCRIPTION':
+      return {
+        ...state,
+        subscriptions: [...state.subscriptions, action.payload],
+      };
+
+    case 'UPDATE_SUBSCRIPTION':
+      return {
+        ...state,
+        subscriptions: state.subscriptions.map(sub =>
+          sub.id === action.payload.id ? action.payload : sub
+        ),
+      };
+
+    case 'DELETE_SUBSCRIPTION':
+      return {
+        ...state,
+        subscriptions: state.subscriptions.filter(sub => sub.id !== action.payload),
+      };
+
+    case 'TOGGLE_SUBSCRIPTION':
+      return {
+        ...state,
+        subscriptions: state.subscriptions.map(sub =>
+          sub.id === action.payload ? { ...sub, isActive: !sub.isActive } : sub
+        ),
       };
 
     case 'ADD_CATEGORY':

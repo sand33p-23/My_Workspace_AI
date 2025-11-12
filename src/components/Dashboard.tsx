@@ -1,9 +1,8 @@
-import React from 'react';
 import { useExpense } from '../context/ExpenseContext';
 import { calculateTotalByPeriod, getBudgetProgress, getSpendingTrend } from '../utils/calculations';
 import { formatCurrency } from '../utils/currencyUtils';
 import { formatDate } from '../utils/dateUtils';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './Dashboard.css';
 
 export function Dashboard() {

@@ -84,6 +84,50 @@ A modern, full-featured expense tracking web application built with React, TypeS
 4. **Open your browser**
    Navigate to `http://localhost:5173` (or the port shown in your terminal)
 
+### Running on Network IP (Access from Other Devices)
+
+The app is configured to be accessible on your local network by default. To access it from other devices:
+
+1. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   Or explicitly use:
+   ```bash
+   npm run dev:host
+   ```
+
+2. **Find your local IP address**
+   
+   **On macOS/Linux:**
+   ```bash
+   ifconfig | grep "inet " | grep -v 127.0.0.1
+   ```
+   Or:
+   ```bash
+   ipconfig getifaddr en0
+   ```
+
+   **On Windows:**
+   ```bash
+   ipconfig
+   ```
+   Look for "IPv4 Address" under your active network adapter.
+
+3. **Access from other devices**
+   - Open a browser on any device connected to the same network
+   - Navigate to `http://YOUR_IP_ADDRESS:5173`
+   - Example: `http://192.168.1.100:5173`
+
+4. **Production Preview on Network**
+   ```bash
+   npm run build
+   npm run preview:host
+   ```
+   Then access it at `http://YOUR_IP_ADDRESS:4173`
+
+**Note:** Make sure your firewall allows incoming connections on the port (5173 for dev, 4173 for preview).
+
 ### Building for Production
 
 ```bash
@@ -218,9 +262,11 @@ The app supports light and dark themes. You can toggle between them using the th
 
 ## 📝 Available Scripts
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server (accessible on network by default)
+- `npm run dev:host` - Start development server with explicit host flag
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
+- `npm run preview:host` - Preview production build on network
 - `npm run lint` - Run ESLint
 
 ## 🤝 Contributing
